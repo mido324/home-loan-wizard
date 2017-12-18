@@ -11,6 +11,8 @@ import WizardNine from './components/WizardNine/WizardNine';
 import WizardTen from './components/WizardTen/WizardTen';
 import WizardEleven from './components/WizardEleven/WizardEleven';
 import Finish from './components/Finish/Finish';
+import {HashRouter} from 'react-router-dom';
+
 
 import NextBtn from './components/NextBtn/NextBtn';
 import { Switch, Route } from 'react-router-dom';
@@ -19,12 +21,14 @@ import { Switch, Route } from 'react-router-dom';
 export default function(loanType, propType, changeLoanType, changePropertyType, changePropertyToBeUsedOn, propToBeUsedOn, city, updateCity, foundFalse, foundTrue, found, realEstateAgentTrue, realEstateAgentFalse, realEstateAgent, updateDownPayment, downPayment, updateCost, cost, credit, updateCreditE,updateCreditG, updateCreditF,updateCreditP, history, updateHistory, addressOne, addressTwo, addressThree, updateAddLineOne, updateAddLineTwo, updateAddLineThree, updateFirst, updateLast, updateEmail, firstName, lastName, email){
 
         return (
-            <Switch>
-                <Route exact path= '/' render={()=> <NextBtn />} />
+            <HashRouter>
+            <div>
+    
+                <Route exact path= '/' component={ NextBtn} />
 
                 <Route 
                     path='/wOne' 
-                    render={ ()=> <WizardOne 
+                   component={WizardOne} 
                                     loanType={loanType} 
                                     propType={propType} 
                                     handleLoanType={changeLoanType} 
@@ -32,13 +36,13 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route
                     path="/wTwo" 
-                    render={ ()=> <WizardTwo 
+                    component={WizardTwo} 
                                     city={city} 
                                     updateCity={updateCity}/> } 
                 />
                 <Route 
                     path="/wThree" 
-                    render={ ()=> <WizardThree 
+                    component={WizardThree} 
                                     loanType={loanType} 
                                     propType={propType} 
                                     propToBeUsedOn={changePropertyToBeUsedOn} 
@@ -46,21 +50,21 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route
                     path='/wFour' 
-                    render={ ()=> <WizardFour 
+                    component={WizardFour} 
                                     foundFalse={foundFalse} 
                                     foundTrue={foundTrue} 
                                     found={found}/> }  
                 />
                 <Route
                     path="/wFive" 
-                    render={ ()=> <WizardFive 
+                    component={WizardFive} 
                                     realEstateAgentTrue={realEstateAgentTrue} 
                                     realEstateAgentFalse={realEstateAgentFalse} 
                                     realEstateAgent={realEstateAgent}/> }  
                 />
                 <Route 
                     path="/wSix" 
-                    render={ ()=> <WizardSix 
+                    component={WizardSix} 
                                     downPayment={downPayment} 
                                     updateDownPayment={updateDownPayment} 
                                     cost={cost} 
@@ -68,7 +72,7 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route 
                     path="/wSeven" 
-                    render={ ()=> <WizardSeven 
+                    component={WizardSeven} 
                                     credit={credit} 
                                     updateCreditE={updateCreditE} 
                                     updateCreditF={updateCreditF} 
@@ -77,13 +81,13 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route 
                     path="/wEight" 
-                    render={ ()=> <WizardEight 
+                    component={WizardEight} 
                                     history={history} 
                                     updateHistory ={updateHistory} /> } 
                 />
                 <Route
                     path="/wNine" 
-                    render={ ()=> <WizardNine 
+                    component={WizardNine} 
                                     addressOne={addressOne} 
                                     addressTwo={addressTwo} 
                                     addressThree={addressThree} 
@@ -93,7 +97,7 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route 
                     path="/wTen"
-                    render={ ()=> <WizardTen 
+                    component={WizardTen} 
                                     firstName={firstName} 
                                     lastName={lastName} email={email} 
                                     updateFirst={updateFirst} 
@@ -102,7 +106,7 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                 />
                 <Route 
                     path="/wEleven"
-                    render={ ()=> <WizardEleven 
+                    component={WizardEleven} 
                                     firstName={firstName} 
                                     lastName={lastName} 
                                     email={email} 
@@ -121,7 +125,9 @@ export default function(loanType, propType, changeLoanType, changePropertyType, 
                                     addressThree={addressThree} /> } 
                 />
                 <Route path='/finish' component={Finish} />
-            </Switch>
+            
+            </div>
+            </HashRouter>
         )
 }
  
